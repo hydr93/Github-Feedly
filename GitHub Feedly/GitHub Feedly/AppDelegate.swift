@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // Change Default View Related Attribtues
-        (UIApplication.shared.value(forKey: "statusBar") as?UIView)?.backgroundColor = .black
+        (UIApplication.shared.value(forKey: "statusBar") as?UIView)?.backgroundColor = UIColor(red: 37/255, green: 41/255, blue: 46/255, alpha: 1.0)
         
         SVProgressHUD.setDefaultStyle(.dark)
         SVProgressHUD.setDefaultMaskType(.clear)

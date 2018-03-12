@@ -132,11 +132,21 @@ class RepositoriesTableViewController : UITableViewController, RepositoryDelegat
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "repositoryCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "repositoryCell", for: indexPath) as! RepositoryTableViewCell
         let repository = repositories[indexPath.row]
-        cell.textLabel?.text = repository.name
+        cell.repoNameLabel.text = repository.name
+        cell.repoStarLabel.text = String(describing:repository.stargazers_count!)
+        cell.repoForkLabel.text = String(describing:repository.forks_count!)
         return cell
-        
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+}
+
+class RepositoryTableViewCell:UITableViewCell{
+    @IBOutlet weak var repoNameLabel: UILabel!
+    @IBOutlet weak var repoStarLabel: UILabel!
+    @IBOutlet weak var repoForkLabel: UILabel!
 }

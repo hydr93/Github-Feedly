@@ -10,11 +10,11 @@ import Foundation
 import SwiftyJSON
 
 class Repository{
-    var id : Int?
-    var name : String?
+    var id : Int!
+    var name : String!
     var description: String?
-    var forks_count: Int?
-    var stargazers_count: Int?
+    var forks_count: Int!
+    var stargazers_count: Int!
     
     init(id: Int, name: String, forks_count: Int, stargazers_count: Int){
         self.id = id
