@@ -8,7 +8,9 @@
 
 import Foundation
 
+// Predefined GitHub Users
 let githubAccounts = ["Google","Facebook","Apple","Microsoft"]
 
+// URL Base of GitHub API
 let githubApiUrlBase = "https://api.github.com/"
 

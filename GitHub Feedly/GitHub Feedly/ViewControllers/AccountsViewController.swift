@@ -25,10 +25,12 @@ class AccountsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         super.viewDidLoad()
         pickerView.dataSource = self
         pickerView.delegate = self
+        
+        // First GitHub Account is always the predefined one.
         changeTitleAndLoadRepositories(title: githubAccounts[0])
-        // Do any additional setup after loading the view.
     }
     
+    // Open/Close PickerView
     @IBAction func listAccountsAction(_ sender: Any) {
         
         self.pickerContainerView.layoutIfNeeded()
@@ -38,7 +40,6 @@ class AccountsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             UIView.animate(withDuration: 0.2) {
                 self.view.layoutIfNeeded()
                 self.pickerView.isHidden = true
-                print(self.pickerView.selectedRow(inComponent: 0))
                 self.changeTitleAndLoadRepositories(title: githubAccounts[self.pickerView.selectedRow(inComponent: 0)])
                 
             }
@@ -79,6 +80,7 @@ class AccountsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     // MARK: Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Set repositoryDelegate to the emmbedded view's controller
         if (segue.identifier == "RepositoriesTableViewContrainerSegue"){
             let destination = segue.destination as! RepositoriesTableViewController
             self.repositoryDelegate = destination
@@ -86,6 +88,7 @@ class AccountsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
 }
 
+// In order to update the tableviewcontroller, when the account is changed
 protocol RepositoryDelegate: class{
     func accountChanged(accountName: String)
 }

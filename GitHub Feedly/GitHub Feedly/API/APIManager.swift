@@ -12,7 +12,9 @@ import SwiftyJSON
 
 final class APIManager {
     
+    // Returns Repositories of a user
     static func getRepositories(user: String, completion: @escaping ([Repository]?,Bool)->Void){
+        // users/{user}/repos
         let url = githubApiUrlBase + "users/" + user + "/repos"
         let headers = ["Accept":"application/vnd.github.v3+json"]
         Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
