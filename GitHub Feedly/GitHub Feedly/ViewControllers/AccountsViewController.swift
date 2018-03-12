@@ -84,6 +84,13 @@ class AccountsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         if (segue.identifier == "RepositoriesTableViewContrainerSegue"){
             let destination = segue.destination as! RepositoriesTableViewController
             self.repositoryDelegate = destination
+            destination.topViewController = self
+        }else if (segue.identifier == "showSegueToCommitsTableView"){
+            let destination = segue.destination as! CommitsTableViewController
+            let dict = sender as! [String:Any]
+            destination.commits = dict["commits"] as! [Commit]
+            destination.repo = dict["repo"] as! Repository
+            destination.user = dict["user"] as! String
         }
     }
 }

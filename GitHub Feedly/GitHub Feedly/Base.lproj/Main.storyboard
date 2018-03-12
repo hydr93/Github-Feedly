@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="uOK-bd-qb4">
@@ -17,6 +22,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="AFJ-h3-oyt">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.14456406235694885" green="0.16046863794326782" blue="0.18127939105033875" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -87,11 +93,70 @@
                         <outlet property="pickerView" destination="CEH-qB-U8E" id="Qid-9h-SNS"/>
                         <outlet property="repositoriesContainerView" destination="Iv4-V6-aVc" id="Alm-Ex-MzY"/>
                         <outlet property="rightBarButtonItem" destination="8a1-sP-ABK" id="xC7-fE-g94"/>
+                        <segue destination="HMO-Ya-M1N" kind="show" identifier="showSegueToCommitsTableView" id="8jx-vd-bKJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FGe-yE-TA4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="488.80000000000001" y="1518.8905547226389"/>
+        </scene>
+        <!--Commits Table View Controller-->
+        <scene sceneID="OBG-go-yzI">
+            <objects>
+                <tableViewController id="HMO-Ya-M1N" customClass="CommitsTableViewController" customModule="GitHub_Feedly" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qrI-Ha-xay">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="commitCell" rowHeight="107" id="mvd-ds-Esb" customClass="CommitTableViewCell" customModule="GitHub_Feedly" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="107"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mvd-ds-Esb" id="jIb-pQ-teC">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="106.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@Message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sev-KE-92v">
+                                            <rect key="frame" x="16" y="11" width="343" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="nJv-nj-w6z"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@Author authored and @Committer committed at @Date" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ug2-m3-pQ2">
+                                            <rect key="frame" x="16" y="40" width="343" height="56"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Sev-KE-92v" secondAttribute="trailing" id="Biu-PZ-ikq"/>
+                                        <constraint firstItem="Sev-KE-92v" firstAttribute="leading" secondItem="jIb-pQ-teC" secondAttribute="leadingMargin" id="CMP-jo-aQk"/>
+                                        <constraint firstItem="Ug2-m3-pQ2" firstAttribute="leading" secondItem="jIb-pQ-teC" secondAttribute="leadingMargin" id="Egw-QC-tJN"/>
+                                        <constraint firstItem="Ug2-m3-pQ2" firstAttribute="trailing" secondItem="jIb-pQ-teC" secondAttribute="trailingMargin" id="WPM-NV-uI1"/>
+                                        <constraint firstItem="Sev-KE-92v" firstAttribute="top" secondItem="jIb-pQ-teC" secondAttribute="topMargin" id="ZlT-xH-mR5"/>
+                                        <constraint firstItem="Ug2-m3-pQ2" firstAttribute="bottom" secondItem="jIb-pQ-teC" secondAttribute="bottomMargin" id="cKt-4C-UnF"/>
+                                        <constraint firstItem="Ug2-m3-pQ2" firstAttribute="top" secondItem="Sev-KE-92v" secondAttribute="bottom" constant="8" id="k7e-mC-gex"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="infoLabel" destination="Ug2-m3-pQ2" id="soG-6M-IdH"/>
+                                    <outlet property="messageLabel" destination="Sev-KE-92v" id="qEL-Ty-jvb"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="HMO-Ya-M1N" id="R5y-WW-KdS"/>
+                            <outlet property="delegate" destination="HMO-Ya-M1N" id="Dah-2u-y4V"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="emc-ma-USD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1309.5999999999999" y="1521.5892053973014"/>
         </scene>
         <!--Repositories Table View Controller-->
         <scene sceneID="EQb-Eo-FR1">
@@ -177,7 +242,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3gU-mv-Hrz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="488.80000000000001" y="2188.1559220389809"/>
+            <point key="canvasLocation" x="489" y="2350"/>
         </scene>
     </scenes>
     <resources>

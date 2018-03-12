@@ -11,12 +11,13 @@
 		5B2721142056850C00C2DBF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B2721122056850C00C2DBF9 /* Main.storyboard */; };
 		5B2721162056850C00C2DBF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B2721152056850C00C2DBF9 /* Assets.xcassets */; };
 		5B2721192056850C00C2DBF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B2721172056850C00C2DBF9 /* LaunchScreen.storyboard */; };
-		5B2721212056891B00C2DBF9 /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2721202056891B00C2DBF9 /* RepositoryViewController.swift */; };
+		5B2721212056891B00C2DBF9 /* CommitsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2721202056891B00C2DBF9 /* CommitsTableViewController.swift */; };
 		5B27212320568EA700C2DBF9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27212220568EA700C2DBF9 /* Constants.swift */; };
 		5B2721252056ADFE00C2DBF9 /* AccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2721242056ADFE00C2DBF9 /* AccountsViewController.swift */; };
 		5B27212F2056C31100C2DBF9 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27212E2056C31100C2DBF9 /* APIManager.swift */; };
 		5B2721322056C7E100C2DBF9 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2721312056C7E100C2DBF9 /* Repository.swift */; };
 		5BA62A612057274300A35501 /* RepositoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA62A602057274300A35501 /* RepositoriesTableViewController.swift */; };
+		5BA62A632057291A00A35501 /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA62A622057291A00A35501 /* Commit.swift */; };
 		BAC1BE48801043C2FE7F19B9 /* Pods_GitHub_Feedly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A58B4025FB7487D45F72EA /* Pods_GitHub_Feedly.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,12 +28,13 @@
 		5B2721152056850C00C2DBF9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B2721182056850C00C2DBF9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B27211A2056850C00C2DBF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5B2721202056891B00C2DBF9 /* RepositoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
+		5B2721202056891B00C2DBF9 /* CommitsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitsTableViewController.swift; sourceTree = "<group>"; };
 		5B27212220568EA700C2DBF9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5B2721242056ADFE00C2DBF9 /* AccountsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsViewController.swift; sourceTree = "<group>"; };
 		5B27212E2056C31100C2DBF9 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		5B2721312056C7E100C2DBF9 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		5BA62A602057274300A35501 /* RepositoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesTableViewController.swift; sourceTree = "<group>"; };
+		5BA62A622057291A00A35501 /* Commit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
 		A61BC1C9D792DCC2703E733B /* Pods-GitHub Feedly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub Feedly.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitHub Feedly/Pods-GitHub Feedly.release.xcconfig"; sourceTree = "<group>"; };
 		C7A58B4025FB7487D45F72EA /* Pods_GitHub_Feedly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHub_Feedly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E9EB46BF731E18CD2A61AA /* Pods-GitHub Feedly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub Feedly.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GitHub Feedly/Pods-GitHub Feedly.debug.xcconfig"; sourceTree = "<group>"; };
@@ -88,7 +90,7 @@
 			children = (
 				5B2721242056ADFE00C2DBF9 /* AccountsViewController.swift */,
 				5BA62A602057274300A35501 /* RepositoriesTableViewController.swift */,
-				5B2721202056891B00C2DBF9 /* RepositoryViewController.swift */,
+				5B2721202056891B00C2DBF9 /* CommitsTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				5B2721312056C7E100C2DBF9 /* Repository.swift */,
+				5BA62A622057291A00A35501 /* Commit.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -269,8 +272,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BA62A632057291A00A35501 /* Commit.swift in Sources */,
 				5B2721252056ADFE00C2DBF9 /* AccountsViewController.swift in Sources */,
-				5B2721212056891B00C2DBF9 /* RepositoryViewController.swift in Sources */,
+				5B2721212056891B00C2DBF9 /* CommitsTableViewController.swift in Sources */,
 				5B27212F2056C31100C2DBF9 /* APIManager.swift in Sources */,
 				5B27210F2056850C00C2DBF9 /* AppDelegate.swift in Sources */,
 				5B27212320568EA700C2DBF9 /* Constants.swift in Sources */,

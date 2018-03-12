@@ -18,6 +18,7 @@ class RepositoriesTableViewController : UITableViewController, RepositoryDelegat
     
     var repositories = [Repository]()
     var accountName:String!
+    var topViewController: AccountsViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,8 +62,23 @@ class RepositoriesTableViewController : UITableViewController, RepositoryDelegat
         return cell
     }
     
+    // MARK: UITableViewDelegate
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let repository :Repository = repositories[indexPath.row]
+        SVProgressHUD.show()
+        APIManager.getCommits(user: accountName, repo: repository.name) { (commits, failed) in
+            if failed == false {
+                let dict = ["user":self.accountName,
+                            "repo":repository,
+                            "commits":commits!] as [String : Any]
+                self.topViewController.performSegue(withIdentifier: "showSegueToCommitsTableView", sender: dict)
+            }
+        }
     }
 }
 
